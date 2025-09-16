@@ -12,7 +12,7 @@ class ProductView(APIView):
     #above two are for only authentic users view
     def get(self,request):
         query = Product.objects.all()
-        serializers = ProstSerializer(query,many=True)
+        serializers = ProductSerializer(query,many=True)
         data = []
         for product in serializers.data:
           fab_query = Favourite.objects.filter(user = request.user).filter(

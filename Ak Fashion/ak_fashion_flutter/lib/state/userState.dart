@@ -8,7 +8,7 @@ class UserState with ChangeNotifier{
 
 
   Future<bool> loginNow(String username, String password) async{
-    String url = '${ProductState.baseUrl}login/'.trim();
+    String url = '${ProductState.baseUrl}/api/login/'.trim();
     try{
       final response = await http.post(Uri.parse(url),
         headers: {
@@ -37,7 +37,7 @@ class UserState with ChangeNotifier{
   }
 
   Future<bool> registerNow(String username, String password) async{
-    String url = '${ProductState.baseUrl}register/'.trim();
+    String url = '${ProductState.baseUrl}/api/register/'.trim();
     try{
       final response = await http.post(Uri.parse(url),
         headers: {

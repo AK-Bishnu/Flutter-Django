@@ -1,8 +1,13 @@
-import 'package:ak_fashion_flutter/screens/loginScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../state/userState.dart';
+import '../utils/spacing.dart';
+import '../widgets/custom_button.dart';
+import '../widgets/custom_card.dart';
+import '../widgets/custom_text.dart';
+import '../widgets/custom_textField.dart';
+import 'loginScreen.dart';
+import '../theme/colors.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -21,9 +26,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   Future<void> _onReg() async {
     final isValid = _form.currentState!.validate();
-    if (!isValid) {
-      return;
-    }
+    if (!isValid) return;
+
     _form.currentState?.save();
 
     final res = await Provider.of<UserState>(context, listen: false)
@@ -33,84 +37,121 @@ class _RegisterScreenState extends State<RegisterScreen> {
       Navigator.pushReplacementNamed(context, LoginScreen.routeName);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Registration failed! Please check your credentials.'),
-          backgroundColor: Colors.red,
-          duration: Duration(seconds: 2),
+        SnackBar(
+          content: const Text('Registration failed! Please check your credentials.'),
+          backgroundColor: AppColors.error,
+          duration: const Duration(seconds: 2),
         ),
       );
     }
   }
+
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Register Here'),
-      ),
+      backgroundColor: theme.colorScheme.background,
       body: Center(
         child: SingleChildScrollView(
-          child: Form(
+          padding: Spacing.pagePadding,
+          child: CustomCard(
+            padding: Spacing.symmetric(vertical: Spacing.xl, horizontal: Spacing.lg),
+            borderRadius: 20,
+            useShadow: true, // uses AppColors.shadow internally
+            child: Form(
               key: _form,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  TextFormField(
-                    validator: (value) {
-                      if(value!.isEmpty){
-                        return 'Please Enter Username';
-                      }
-                      return null;
-                    },
-                    onSaved: (newValue) {
-                      _username = newValue!;
-                    },
-                    decoration: InputDecoration(
-                        labelText: "Username"
+                  // Title
+                  CustomText(
+                    "Create Account",
+                    style: theme.textTheme.displaySmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: isDark ? AppColors.darkTextLight : AppColors.lightTextPrimary,
                     ),
+                    align: TextAlign.center,
                   ),
-                  TextFormField(
+                  const SizedBox(height: Spacing.md),
+
+                  CustomText(
+                    "Join us and start shopping today!",
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                    ),
+                    align: TextAlign.center,
+                  ),
+                  const SizedBox(height: Spacing.xl),
+
+                  // Username
+                  CustomTextField(
+                    label: "Username",
                     validator: (value) {
-                      if(value!.isEmpty){
-                        return 'Please Enter Password';
-                      }
+                      if (value == null || value.isEmpty) return "Please enter a username";
                       return null;
                     },
-                    onSaved: (newValue) {
-                      _password = newValue!;
-                    },
-                    onChanged: (value) {
-                      setState(() {
-                        _confirmPass = value;
-                      });
-                    },
-                    decoration: InputDecoration(
-                      labelText: "Password",
-                    ),
+                    onSaved: (value) => _username = value!,
+                  ),
+                  const SizedBox(height: Spacing.md),
+
+                  // Password
+                  CustomTextField(
+                    label: "Password",
                     obscureText: true,
-                    autocorrect: false,
-                  ),
-                  TextFormField(
                     validator: (value) {
-                      if(value!.isEmpty){
-                        return 'Please Enter confirmation Password';
-                      }
-                      if(value!=_confirmPass){
-                        return 'Password didnot match';
-                      }
+                      if (value == null || value.isEmpty) return "Please enter a password";
                       return null;
                     },
-                    onSaved: (newValue) {
-                      _confirmPass = newValue!;
-                    },
-                    decoration: InputDecoration(
-                      labelText: "Confirm your Password",
-                    ),
-                    obscureText: true,
-                    autocorrect: false,
+                    onSaved: (value) => _password = value!,
                   ),
-                  ElevatedButton(onPressed: _onReg, child: Text('Register')),
+                  const SizedBox(height: Spacing.md),
+
+                  // Confirm Password
+                  CustomTextField(
+                    label: "Confirm Password",
+                    obscureText: true,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) return "Please confirm your password";
+                      if (value != _password) return "Passwords do not match";
+                      return null;
+                    },
+                    onSaved: (value) => _confirmPass = value!,
+                  ),
+                  const SizedBox(height: Spacing.xl),
+
+                  // Register button
+                  CustomButton(
+                    text: "Register",
+                    onPressed: _onReg,
+                    type: ButtonType.primary,
+                  ),
+                  const SizedBox(height: Spacing.lg),
+
+                  // Login link
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CustomText(
+                        "Already have an account? ",
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                        ),
+                      ),
+                      CustomButton(
+                        text: "Login",
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+                        },
+                        type: ButtonType.text,
+                      ),
+                    ],
+                  ),
                 ],
-              )),
+              ),
+            ),
+          ),
         ),
       ),
     );

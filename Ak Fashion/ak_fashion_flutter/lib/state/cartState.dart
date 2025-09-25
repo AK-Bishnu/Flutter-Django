@@ -15,7 +15,7 @@ class CartState with ChangeNotifier{
   CartModel ?_cartModel;
   List<OrderModel> _orders =[];
   Future<void> fetchCart() async {
-    String url = '${ProductState.baseUrl}cart/'.trim();
+    String url = '${ProductState.baseUrl}/api/cart/'.trim();
     final token = await getToken();
     try {
       final response = await http.get(Uri.parse(url), headers: {
@@ -47,7 +47,7 @@ class CartState with ChangeNotifier{
   }
 
   Future<void> fetchOrders() async {
-    String url = '${ProductState.baseUrl}order/'.trim();
+    String url = '${ProductState.baseUrl}/api/order/'.trim();
     final token = await getToken();
     try {
       final response = await http.get(Uri.parse(url), headers: {
@@ -78,7 +78,7 @@ class CartState with ChangeNotifier{
   }
 
   Future<void>deleteCartProduct(int id) async {
-    String url = '${ProductState.baseUrl}deleteCartProduct/'.trim();
+    String url = '${ProductState.baseUrl}/api/deleteCartProduct/'.trim();
     final token = await getToken();
     try {
       final response = await http.post(Uri.parse(url), headers: {
@@ -100,7 +100,7 @@ class CartState with ChangeNotifier{
   }
 
   Future<void>deleteCart(int id) async {
-    String url = '${ProductState.baseUrl}deleteCart/'.trim();
+    String url = '${ProductState.baseUrl}/api/deleteCart/'.trim();
     final token = await getToken();
     try {
       final response = await http.post(Uri.parse(url), headers: {
@@ -125,7 +125,7 @@ class CartState with ChangeNotifier{
 
   Future<bool>orderCart(Map<String,dynamic> data) async {
     Map<String,dynamic> tem = data;
-    String url = '${ProductState.baseUrl}orderCart/'.trim();
+    String url = '${ProductState.baseUrl}/api/orderCart/'.trim();
     final token = await getToken();
     try {
       final response = await http.post(Uri.parse(url), headers: {

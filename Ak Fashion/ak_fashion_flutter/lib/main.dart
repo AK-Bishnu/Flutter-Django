@@ -9,6 +9,7 @@ import 'package:ak_fashion_flutter/screens/registerScreen.dart';
 import 'package:ak_fashion_flutter/state/cartState.dart';
 import 'package:ak_fashion_flutter/state/productState.dart';
 import 'package:ak_fashion_flutter/state/userState.dart';
+import 'package:ak_fashion_flutter/theme/appTheme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,6 +37,9 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: ThemeMode.system,
         // if token exists → go to Homescreen, else LoginScreen
         home: isLoggedIn ? const Homescreen() : const LoginScreen(),
         routes: {

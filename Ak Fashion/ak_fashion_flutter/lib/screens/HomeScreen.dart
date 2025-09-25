@@ -1,9 +1,13 @@
-import 'package:ak_fashion_flutter/state/cartState.dart';
-import 'package:ak_fashion_flutter/state/productState.dart';
-import 'package:ak_fashion_flutter/widgets/SingleProduct.dart';
-import 'package:ak_fashion_flutter/widgets/app_Drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../state/cartState.dart';
+import '../state/productState.dart';
+import '../widgets/custom_card.dart';
+import '../widgets/custom_text.dart';
+import '../widgets/custom_textField.dart';
+import '../widgets/SingleProduct.dart';
+import '../widgets/app_Drawer.dart';
+import '../utils/spacing.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -21,41 +25,21 @@ class _HomescreenState extends State<Homescreen> {
   void initState() {
     super.initState();
     _loadProducts();
-    loadCart();
+    _loadCart();
     _loadOrders();
+  }
 
-  }
-  Future<void> _loadOrders() async{
-    try{
-      await Provider.of<CartState>(context,listen: false).fetchOrders();
-    }catch(e){
-      print('error of loading orders');
-      print(e);
-    }
-  }
-  Future<void> loadCart() async{
-    try{
-      await Provider.of<CartState>(context,listen: false).fetchCart();
-      //print('cart loaded successfully');
-    }catch(e){
-      print('error of loading cart');
-      print(e);
-    }
-  }
   Future<void> _loadProducts() async {
     try {
-      final result = await Provider.of<ProductState>(
-        context,
-        listen: false,
-      ).getProducts();
-
+      final success =
+      await Provider.of<ProductState>(context, listen: false).getProducts();
       if (mounted) {
         setState(() {
           _isLoading = false;
-          _hasError = !result;
+          _hasError = !success;
         });
       }
-    } catch (error) {
+    } catch (e) {
       if (mounted) {
         setState(() {
           _isLoading = false;
@@ -65,46 +49,133 @@ class _HomescreenState extends State<Homescreen> {
     }
   }
 
+  Future<void> _loadCart() async {
+    try {
+      await Provider.of<CartState>(context, listen: false).fetchCart();
+    } catch (e) {
+      debugPrint('Error loading cart: $e');
+    }
+  }
+
+  Future<void> _loadOrders() async {
+    try {
+      await Provider.of<CartState>(context, listen: false).fetchOrders();
+    } catch (e) {
+      debugPrint('Error loading orders: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final products = Provider.of<ProductState>(context).products;
 
     return Scaffold(
-      drawer: !_isLoading && !_hasError ? AppDrawer() : null,
-      appBar: AppBar(title: Text('Welcome to AK-Fashion')),
+      drawer: !_isLoading && !_hasError ? const AppDrawer() : null,
+      appBar: AppBar(
+        title: CustomText(
+          "AK Shop",
+          style: theme.textTheme.bodyLarge
+              ?.copyWith(color: theme.primaryColor),
+        ),
+        backgroundColor: theme.scaffoldBackgroundColor,
+        elevation: 1.5,
+        actions: [
+          IconButton(
+            onPressed: _loadProducts,
+            icon: Icon(Icons.refresh, color: theme.primaryColor),
+          ),
+          const SizedBox(width: 8),
+        ],
+      ),
       body: _isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : _hasError
-          ? Center(
+          ? _buildErrorState(theme)
+          : products.isEmpty
+          ? _buildEmptyState(theme)
+          : RefreshIndicator(
+        onRefresh: _loadProducts,
+        child: Padding(
+          padding: EdgeInsets.all(Spacing.md),
+          child: GridView.builder(
+            gridDelegate:
+            const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 3 / 4,
+              mainAxisSpacing: 12,
+              crossAxisSpacing: 12,
+            ),
+            itemCount: products.length,
+            itemBuilder: (context, index) {
+              return SingleProduct(
+                id: products[index].id!.toInt(),
+                imageUrl: products[index].image.toString(),
+                title: products[index].title.toString(),
+                isFavourite: products[index].favourite as bool,
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildErrorState(ThemeData theme) {
+    return Center(
+      child: CustomCard(
+        padding: EdgeInsets.all(Spacing.lg),
+        useShadow: true,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Text('Failed to load products'),
+            const Icon(Icons.error_outline, color: Colors.red, size: 48),
+            SizedBox(height: Spacing.sm),
+            CustomText(
+              "Failed to load products",
+              style: theme.textTheme.bodyLarge,
+            ),
+            SizedBox(height: Spacing.md),
             ElevatedButton(
               onPressed: _loadProducts,
-              child: Text('Retry'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: theme.primaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: CustomText(
+                "Retry",
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.textTheme.labelLarge?.color,
+                ),
+              ),
             ),
           ],
         ),
-      )
-          : products.isEmpty
-          ? Center(child: Text('No products available'))
-          : GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 3 / 4,
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
+      ),
+    );
+  }
+
+  Widget _buildEmptyState(ThemeData theme) {
+    return Center(
+      child: CustomCard(
+        padding: EdgeInsets.all(Spacing.lg),
+        useShadow: true,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.shopping_bag_outlined,
+                color: theme.primaryColor, size: 48),
+            SizedBox(height: Spacing.sm),
+            CustomText(
+              "No Products Available",
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.textTheme.labelLarge?.color,
+              ),
+            ),
+          ],
         ),
-        itemCount: products.length,
-        itemBuilder: (context, index) {
-          return SingleProduct(
-            id: products[index].id!.toInt(),
-            imageUrl: products[index].image.toString(),
-            title: products[index].title.toString(),
-            isFavourite: products[index].favourite as bool,
-          );
-        },
       ),
     );
   }

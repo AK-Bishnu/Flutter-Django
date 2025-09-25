@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProductState with ChangeNotifier {
-  static const String baseUrl = 'http://10.29.169.204:8000/api/';
+  static const String baseUrl = 'http://10.29.166.146:8000';
   List<ProductModel> _products = [];
   Future<String?> getToken()async{
     final prefs = await SharedPreferences.getInstance();
@@ -14,7 +14,7 @@ class ProductState with ChangeNotifier {
 
   Future<bool> getProducts() async {
     baseUrl.trim();
-    String url = '${baseUrl}products/'.trim();
+    String url = '${baseUrl}/api/products/'.trim();
     final token = await getToken();
     try {
       final response = await http.get(Uri.parse(url), headers: {
@@ -42,7 +42,7 @@ class ProductState with ChangeNotifier {
   }
 
   Future<void> favouriteButton(int id) async {
-    String url = '${baseUrl}favourites/'.trim();
+    String url = '${baseUrl}/api/favourites/'.trim();
     final token =await getToken();
     try {
       final response = await http.post(Uri.parse(url), headers: {
@@ -67,7 +67,7 @@ class ProductState with ChangeNotifier {
 
 
   Future<bool> addToCart(int id ) async {
-    String url = '${baseUrl}addToCart/'.trim();
+    String url = '${baseUrl}/api/addToCart/'.trim();
     final token =await getToken();
     try {
       final response = await http.post(Uri.parse(url), headers: {

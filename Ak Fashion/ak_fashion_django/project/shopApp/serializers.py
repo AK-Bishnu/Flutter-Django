@@ -4,17 +4,10 @@ from django.contrib.auth import get_user_model
 from rest_framework.authtoken.models import Token
 
 class ProductSerializer(serializers.ModelSerializer):
-    image_url = serializers.SerializerMethodField()
-
     class Meta:
         model = Product
-        fields = ["id", "title", "date", "category", "market_price", "selling_price", "description", "image_url"]
+        fields = "__all__"
         depth = 1
-
-    def get_image_url(self, obj):
-        if obj.image:
-            return obj.image.url   # CloudinaryField provides .url
-        return None
 
     
 

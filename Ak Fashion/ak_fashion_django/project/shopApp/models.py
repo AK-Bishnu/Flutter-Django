@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
+
 
 class Category(models.Model):
     title = models.CharField(max_length=100)
@@ -12,7 +12,7 @@ class Product(models.Model):
     title = models.CharField(max_length=100)
     date = models.DateField(auto_now_add=True)
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
-    image = CloudinaryField('image')
+    image = models.ImageField(upload_to='products/', null=True, blank=True)
     market_price = models.PositiveIntegerField()
     selling_price = models.PositiveIntegerField()
     description = models.TextField()

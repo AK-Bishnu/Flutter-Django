@@ -1,6 +1,6 @@
 ## AK Shop
 
-The app is designed to provide a seamless shopping experience for customers, with support for both dark and light themes.  
+This is an e-commerce single-vendor mobile shopping app that allows customers to browse products, manage their cart, and place orders seamlessly.
 
 ## Tech Highlights
 
@@ -10,7 +10,7 @@ Before looking at the screenshots, here are some technical details about the app
 - **Backend:** Django REST Framework for APIs  
 - **Database:** SQLite (can be replaced with PostgreSQL)  
 - **API Integration:** REST API connecting Flutter frontend with Django backend  
-- **Theme Support:** Dark and Light mode implemented throughout the app  
+- **Theme Support:** Dark and Light mode implemented throughout the app based on **system theme**
 - **Authentication:** Secure login and user account management  
 - **Admin Panel:** Managed via Django for product, order, and user control  
 

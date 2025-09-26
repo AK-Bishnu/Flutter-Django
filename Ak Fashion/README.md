@@ -2,7 +2,19 @@
 
 The app is designed to provide a seamless shopping experience for customers, with support for both dark and light themes.  
 
-Below are the main screens of the app in **dark mode**, followed by a few light mode screens.
+## Tech Highlights
+
+Before looking at the screenshots, here are some technical details about the app:  
+
+- **Frontend:** Flutter for cross-platform mobile UI  
+- **Backend:** Django REST Framework for APIs  
+- **Database:** SQLite (can be replaced with PostgreSQL)  
+- **API Integration:** REST API connecting Flutter frontend with Django backend  
+- **Theme Support:** Dark and Light mode implemented throughout the app  
+- **Authentication:** Secure login and user account management  
+- **Admin Panel:** Managed via Django for product, order, and user control  
+
+---
 
 ## Dark Mode Screens
 

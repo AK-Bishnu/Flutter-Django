@@ -5,64 +5,74 @@ The app is designed to provide a seamless shopping experience for customers, wit
 Below are the main screens of the app in **dark mode**, followed by a few light mode screens.
 
 ### Dark Mode Screens
-<p align="center">
-  <figure style="display: inline-block; margin: 10px;">
-    <img src="App Screenshots/loginD.jpg" width="250"/>
-    <figcaption>Login</figcaption>
-  </figure>
-  <figure style="display: inline-block; margin: 10px;">
-    <img src="App Screenshots/RegD.jpg" width="250"/>
-    <figcaption>Registration</figcaption>
-  </figure>
-  <figure style="display: inline-block; margin: 10px;">
-    <img src="App Screenshots/HomeD.jpg" width="250"/>
-    <figcaption>Home</figcaption>
-  </figure>
-  </figure>
-  <figure style="display: inline-block; margin: 10px;">
-    <img src="App Screenshots/PD_D.jpg" width="250"/>
-    <figcaption>Product Details</figcaption>
-  </figure>
-  <figure style="display: inline-block; margin: 10px;">
-    <img src="App Screenshots/MenuD.jpg" width="250"/>
-    <figcaption>Menu</figcaption>
-  </figure>
-  <figure style="display: inline-block; margin: 10px;">
-    <img src="App Screenshots/FavD.jpg" width="250"/>
-    <figcaption>Favourites</figcaption>
-  </figure>
-  </figure>
-  <figure style="display: inline-block; margin: 10px;">
-    <img src="App Screenshots/CartD.jpg" width="250"/>
-    <figcaption>Cart</figcaption>
-  </figure>
-  </figure>
-  <figure style="display: inline-block; margin: 10px;">
-    <img src="App Screenshots/OrdersD.jpg" width="250"/>
-    <figcaption>Orders</figcaption>
-  </figure>
-  </figure>
-  <figure style="display: inline-block; margin: 10px;">
-    <img src="App Screenshots/CreateOrdD.jpg" width="250"/>
-    <figcaption>Create Order</figcaption>
-  </figure>
-</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+
+<div style="text-align: center;">
+  <img src="App Screenshots/loginD.jpg" width="250"/>
+  <p>Login</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="App Screenshots/RegD.jpg" width="250"/>
+  <p>Registration</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="App Screenshots/HomeD.jpg" width="250"/>
+  <p>Home</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="App Screenshots/PD_D.jpg" width="250"/>
+  <p>Product Details</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="App Screenshots/MenuD.jpg" width="250"/>
+  <p>Menu</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="App Screenshots/FavD.jpg" width="250"/>
+  <p>Favourites</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="App Screenshots/CartD.jpg" width="250"/>
+  <p>Cart</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="App Screenshots/OrdersD.jpg" width="250"/>
+  <p>Orders</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="App Screenshots/CreateOrdD.jpg" width="250"/>
+  <p>Create Order</p>
+</div>
+
+</div>
 
 ### Light Mode Screens
-<p align="center">
-  <figure style="display: inline-block; margin: 10px;">
-    <img src="App Screenshots/HomeB.jpg" width="250"/>
-    <figcaption>Home</figcaption>
-  </figure>
-  <figure style="display: inline-block; margin: 10px;">
-    <img src="App Screenshots/PD_B.jpg" width="250"/>
-    <figcaption>Product Details</figcaption>
-  </figure>
-  <figure style="display: inline-block; margin: 10px;">
-    <img src="App Screenshots/MenuB.jpg" width="250"/>
-    <figcaption>Menu</figcaption>
-  </figure>
-</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+
+<div style="text-align: center;">
+  <img src="App Screenshots/HomeB.jpg" width="250"/>
+  <p>Home</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="App Screenshots/PD_B.jpg" width="250"/>
+  <p>Product Details</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="App Screenshots/MenuB.jpg" width="250"/>
+  <p>Menu</p>
+</div>
+
+</div>
 
 ---
 
@@ -72,4 +82,3 @@ Below are the main screens of the app in **dark mode**, followed by a few light 
 - **Customer App:** Built with Flutter to browse products, manage cart, place orders, and view order history.  
 - **Theme Support:** Fully responsive with both dark and light themes for enhanced user experience.  
 - **Authentication:** Secure login/signup and user account management.  
-

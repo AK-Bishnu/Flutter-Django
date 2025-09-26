@@ -4,75 +4,31 @@ The app is designed to provide a seamless shopping experience for customers, wit
 
 Below are the main screens of the app in **dark mode**, followed by a few light mode screens.
 
-### Dark Mode Screens
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+## Dark Mode Screens
 
-<div style="text-align: center;">
-  <img src="App Screenshots/loginD.jpg" width="250"/>
-  <p>Login</p>
-</div>
+The main screens of the app in dark mode:
 
-<div style="text-align: center;">
-  <img src="App Screenshots/RegD.jpg" width="250"/>
-  <p>Registration</p>
-</div>
+| Login | Registration | Home | Product Details |
+|-------|--------------|------|----------------|
+| <img src="App Screenshots/loginD.jpg" width="200"/> | <img src="App Screenshots/RegD.jpg" width="200"/> | <img src="App Screenshots/HomeD.jpg" width="200"/> | <img src="App Screenshots/PD_D.jpg" width="200"/> |
 
-<div style="text-align: center;">
-  <img src="App Screenshots/HomeD.jpg" width="250"/>
-  <p>Home</p>
-</div>
 
-<div style="text-align: center;">
-  <img src="App Screenshots/PD_D.jpg" width="250"/>
-  <p>Product Details</p>
-</div>
+| Menu | Favourites | Cart | Orders |
+|------|-----------|------|-------|
+| <img src="App Screenshots/MenuD.jpg" width="200"/> | <img src="App Screenshots/FavD.jpg" width="200"/> | <img src="App Screenshots/CartD.jpg" width="200"/> | <img src="App Screenshots/OrdersD.jpg" width="200"/> |
 
-<div style="text-align: center;">
-  <img src="App Screenshots/MenuD.jpg" width="250"/>
-  <p>Menu</p>
-</div>
 
-<div style="text-align: center;">
-  <img src="App Screenshots/FavD.jpg" width="250"/>
-  <p>Favourites</p>
-</div>
+| Create Order |
+|--------------|
+| <img src="App Screenshots/CreateOrdD.jpg" width="200"/> |
 
-<div style="text-align: center;">
-  <img src="App Screenshots/CartD.jpg" width="250"/>
-  <p>Cart</p>
-</div>
+---
 
-<div style="text-align: center;">
-  <img src="App Screenshots/OrdersD.jpg" width="250"/>
-  <p>Orders</p>
-</div>
+## Light Mode Screens
 
-<div style="text-align: center;">
-  <img src="App Screenshots/CreateOrdD.jpg" width="250"/>
-  <p>Create Order</p>
-</div>
-
-</div>
-
-### Light Mode Screens
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-
-<div style="text-align: center;">
-  <img src="App Screenshots/HomeB.jpg" width="250"/>
-  <p>Home</p>
-</div>
-
-<div style="text-align: center;">
-  <img src="App Screenshots/PD_B.jpg" width="250"/>
-  <p>Product Details</p>
-</div>
-
-<div style="text-align: center;">
-  <img src="App Screenshots/MenuB.jpg" width="250"/>
-  <p>Menu</p>
-</div>
-
-</div>
+| Home | Product Details | Menu |
+|------|----------------|------|
+| <img src="App Screenshots/HomeB.jpg" width="200"/> | <img src="App Screenshots/PD_B.jpg" width="200"/> | <img src="App Screenshots/MenuB.jpg" width="200"/> |
 
 ---
 

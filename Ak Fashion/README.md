@@ -1,69 +1,75 @@
-# Ak Fashion
+## App Screenshots
 
-Ak Fashion is a mobile e-commerce application built with **Flutter** for the frontend and **Django REST Framework** for the backend.  
-The app is designed to provide a smooth online shopping experience with both **dark** and **light** theme support.
+The app is designed to provide a seamless shopping experience for customers, with support for both dark and light themes.  
+
+Below are the main screens of the app in **dark mode**, followed by a few light mode screens.
+
+### Dark Mode Screens
+<p align="center">
+  <figure style="display: inline-block; margin: 10px;">
+    <img src="App Screenshots/loginD.jpg" width="250"/>
+    <figcaption>Login</figcaption>
+  </figure>
+  <figure style="display: inline-block; margin: 10px;">
+    <img src="App Screenshots/RegD.jpg" width="250"/>
+    <figcaption>Registration</figcaption>
+  </figure>
+  <figure style="display: inline-block; margin: 10px;">
+    <img src="App Screenshots/HomeD.jpg" width="250"/>
+    <figcaption>Home</figcaption>
+  </figure>
+  </figure>
+  <figure style="display: inline-block; margin: 10px;">
+    <img src="App Screenshots/PD_D.jpg" width="250"/>
+    <figcaption>Product Details</figcaption>
+  </figure>
+  <figure style="display: inline-block; margin: 10px;">
+    <img src="App Screenshots/MenuD.jpg" width="250"/>
+    <figcaption>Menu</figcaption>
+  </figure>
+  <figure style="display: inline-block; margin: 10px;">
+    <img src="App Screenshots/FavD.jpg" width="250"/>
+    <figcaption>Favourites</figcaption>
+  </figure>
+  </figure>
+  <figure style="display: inline-block; margin: 10px;">
+    <img src="App Screenshots/CartD.jpg" width="250"/>
+    <figcaption>Cart</figcaption>
+  </figure>
+  </figure>
+  <figure style="display: inline-block; margin: 10px;">
+    <img src="App Screenshots/OrdersD.jpg" width="250"/>
+    <figcaption>Orders</figcaption>
+  </figure>
+  </figure>
+  <figure style="display: inline-block; margin: 10px;">
+    <img src="App Screenshots/CreateOrdD.jpg" width="250"/>
+    <figcaption>Create Order</figcaption>
+  </figure>
+</p>
+
+### Light Mode Screens
+<p align="center">
+  <figure style="display: inline-block; margin: 10px;">
+    <img src="App Screenshots/HomeB.jpg" width="250"/>
+    <figcaption>Home</figcaption>
+  </figure>
+  <figure style="display: inline-block; margin: 10px;">
+    <img src="App Screenshots/PD_B.jpg" width="250"/>
+    <figcaption>Product Details</figcaption>
+  </figure>
+  <figure style="display: inline-block; margin: 10px;">
+    <img src="App Screenshots/MenuB.jpg" width="250"/>
+    <figcaption>Menu</figcaption>
+  </figure>
+</p>
 
 ---
 
-## Features
+### About the App
 
-- Admin panel in Django for Shop Owner
-  Flutter app for customers:
-- View product details with images, description, and prices
-- Add items to the cart and manage quantities
-- Place orders and view order history
-- Authentication and user account support
-- Responsive design with light and dark themes
+- **Admin Panel:** Managed via Django for shop owners to add, update, or remove products.  
+- **Customer App:** Built with Flutter to browse products, manage cart, place orders, and view order history.  
+- **Theme Support:** Fully responsive with both dark and light themes for enhanced user experience.  
+- **Authentication:** Secure login/signup and user account management.  
 
----
-
-## Tech Stack
-
-**Frontend:** Flutter  
-**Backend:** Django REST Framework  
-**Database:** SQLite  
-**API:** REST API integration between Flutter and Django  
-
----
-
-## App Flow (Dark Mode)
-
-### Home
-<p align="center">
-  <img src="App Screenshots/HomeD.jpg" width="250"/>
-</p>
-
-### Product Details
-<p align="center">
-  <img src="images/product_dark.png" width="250"/>
-</p>
-
-### Cart
-<p align="center">
-  <img src="images/cart_dark.png" width="250"/>
-</p>
-
-### Checkout
-<p align="center">
-  <img src="images/checkout_dark.png" width="250"/>
-</p>
-
-### Orders
-<p align="center">
-  <img src="images/orders_dark.png" width="250"/>
-</p>
-
----
-
-## Light Mode Support
-
-The app also supports light mode.  
-Here are a few sample screens:
-
-<p align="center">
-  <img src="images/home_light.png" width="250"/>
-  <img src="images/product_light.png" width="250"/>
-  <img src="images/cart_light.png" width="250"/>
-</p>
-
----

@@ -1,4 +1,4 @@
-## App Screenshots
+## AK Shop
 
 The app is designed to provide a seamless shopping experience for customers, with support for both dark and light themes.  
 
@@ -15,7 +15,7 @@ The main screens of the app in dark mode:
 
 | Menu | Favourites | Cart | Orders |
 |------|-----------|------|-------|
-| <img src="App Screenshots/MenuD.jpg" width="200"/> | <img src="App Screenshots/FavD.jpg" width="200"/> | <img src="App Screenshots/CartD.jpg" width="200"/> | <img src="App Screenshots/OrdersD.jpg" width="200"/> |
+| <img src="App Screenshots/MenuD.jpg" width="200"/> | <img src="App Screenshots/FavD.jpg" width="200"/> | <img src="App Screenshots/CartD.jpg" width="200"/> | <img src="App Screenshots/OdersD.jpg" width="200"/> |
 
 
 | Create Order |

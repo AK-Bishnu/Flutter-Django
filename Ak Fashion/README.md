@@ -16,6 +16,9 @@ Before looking at the screenshots, here are some technical details about the app
 
 ---
 
+## Admin Panel
+ <img src="App Screenshots/adminPanel.png" width="800"/> 
+
 ## Dark Mode Screens
 
 The main screens of the app in dark mode:
